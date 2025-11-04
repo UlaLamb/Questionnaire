@@ -1,0 +1,51 @@
+# Hardhat artifacts
+artifacts/
+cache/
+coverage/
+fhevmTemp/
+
+# Node modules (will be installed during build)
+node_modules/
+
+# TypeScript types
+types/
+
+# Test files
+test/
+tasks/
+
+# Deployment files (not needed for frontend)
+deploy/
+deployments/
+
+# Configuration files not needed for deployment
+hardhat.config.ts
+.solcover.js
+.solhint.json
+.solhintignore
+.eslintrc.yml
+.eslintignore
+.prettierrc.yml
+.prettierignore
+tsconfig.json
+
+# Git files
+.git/
+.gitignore
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files (use Vercel environment variables instead)
+.env
+.env.local
+.env.*.local
+
