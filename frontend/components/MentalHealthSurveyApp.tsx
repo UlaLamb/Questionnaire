@@ -428,27 +428,55 @@ export function MentalHealthSurveyApp() {
       </div>
 
       {!isConnected ? (
-        <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-          <h2 className="text-2xl font-semibold mb-4">Connect Your Wallet</h2>
+        <div className="bg-white rounded-2xl shadow-xl p-8 text-center card-hover">
+          <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Connect Your Wallet</h2>
           <p className="text-gray-600 mb-6">
             Please connect your wallet to start using the Encrypted Mental Health Survey
           </p>
+          <div className="flex justify-center gap-4 mb-6">
+            <div className="p-3 bg-purple-50 rounded-xl text-center">
+              <div className="text-2xl">🔐</div>
+              <div className="text-xs text-gray-500 mt-1">Encrypted</div>
+            </div>
+            <div className="p-3 bg-blue-50 rounded-xl text-center">
+              <div className="text-2xl">⛓️</div>
+              <div className="text-xs text-gray-500 mt-1">On-Chain</div>
+            </div>
+            <div className="p-3 bg-green-50 rounded-xl text-center">
+              <div className="text-2xl">🛡️</div>
+              <div className="text-xs text-gray-500 mt-1">Private</div>
+            </div>
+          </div>
           <ConnectButton />
         </div>
       ) : (
         <>
-          <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-              Submit Mental Health Survey
-            </h2>
-            <p className="text-gray-600 mb-6">
-              Your responses are encrypted and stored securely. Only you can decrypt them.
-            </p>
+          <div className="bg-white rounded-2xl shadow-xl p-6 mb-6 card-hover">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-gray-800">Submit Mental Health Survey</h2>
+                <p className="text-gray-500 text-sm">Your responses are encrypted and stored securely</p>
+              </div>
+            </div>
+            <div className="mb-5 p-3 bg-green-50 rounded-xl border border-green-200 flex items-center gap-2">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              <span className="text-green-700 text-sm">🔐 Only you can decrypt your data</span>
+            </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Stress Level (0-100)
+                <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+                  😰 Stress Level (0-100)
                 </label>
                 <input
                   type="number"
@@ -458,14 +486,14 @@ export function MentalHealthSurveyApp() {
                   required
                   value={form.stressLevel}
                   onChange={onChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 input-focus"
                   placeholder="Enter stress level (0-100)"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Anxiety Level (0-100)
+                <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+                  😟 Anxiety Level (0-100)
                 </label>
                 <input
                   type="number"
@@ -475,14 +503,14 @@ export function MentalHealthSurveyApp() {
                   required
                   value={form.anxietyLevel}
                   onChange={onChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 input-focus"
                   placeholder="Enter anxiety level (0-100)"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Mood Score (0-100)
+                <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+                  😊 Mood Score (0-100)
                 </label>
                 <input
                   type="number"
@@ -492,14 +520,14 @@ export function MentalHealthSurveyApp() {
                   required
                   value={form.moodScore}
                   onChange={onChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 input-focus"
                   placeholder="Enter mood score (0-100)"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Sleep Quality (0-100)
+                <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+                  😴 Sleep Quality (0-100)
                 </label>
                 <input
                   type="number"
@@ -509,14 +537,14 @@ export function MentalHealthSurveyApp() {
                   required
                   value={form.sleepQuality}
                   onChange={onChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 input-focus"
                   placeholder="Enter sleep quality (0-100)"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Energy Level (0-100)
+                <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+                  ⚡ Energy Level (0-100)
                 </label>
                 <input
                   type="number"
@@ -526,7 +554,7 @@ export function MentalHealthSurveyApp() {
                   required
                   value={form.energyLevel}
                   onChange={onChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 input-focus"
                   placeholder="Enter energy level (0-100)"
                 />
               </div>
@@ -534,20 +562,25 @@ export function MentalHealthSurveyApp() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 px-6 rounded-xl font-semibold hover:from-purple-700 hover:to-pink-700 disabled:opacity-50 disabled:cursor-not-allowed btn-glow"
               >
-                {loading ? "Submitting..." : "Submit Encrypted Survey"}
+                {loading ? "🔄 Processing..." : "🔐 Submit Encrypted Survey"}
               </button>
             </form>
           </div>
 
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-              Survey History
-            </h2>
-            <p className="text-gray-600 mb-4">
-              You have {surveyCount.toString()} survey{surveyCount !== 1n ? "s" : ""} stored
-            </p>
+          <div className="bg-white rounded-2xl shadow-xl p-6 card-hover">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-teal-500 rounded-full flex items-center justify-center">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-gray-800">Survey History</h2>
+                <p className="text-gray-500 text-sm">You have {surveyCount.toString()} survey{surveyCount !== 1n ? "s" : ""} stored</p>
+              </div>
+            </div>
 
             {surveyCount > 0n && (
               <div className="space-y-4">
@@ -556,55 +589,65 @@ export function MentalHealthSurveyApp() {
                   return (
                     <div
                       key={index}
-                      className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors"
+                      className="border-2 border-gray-100 rounded-xl p-4 hover:border-purple-200 hover:shadow-md transition-all"
                     >
                       <div className="flex justify-between items-start mb-3">
-                        <div>
-                          <h3 className="font-semibold text-gray-800">
-                            Survey #{index + 1}
-                          </h3>
-                          {decrypted && (
-                            <p className="text-xs text-gray-500 mt-1">
-                              {new Date(decrypted.timestamp * 1000).toLocaleString()}
-                            </p>
-                          )}
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                            #{index + 1}
+                          </div>
+                          <div>
+                            <h3 className="font-semibold text-gray-800">
+                              Survey #{index + 1}
+                            </h3>
+                            {decrypted && (
+                              <p className="text-xs text-gray-500 mt-1">
+                                📅 {new Date(decrypted.timestamp * 1000).toLocaleString()}
+                              </p>
+                            )}
+                          </div>
                         </div>
                         <button
                           onClick={() => handleDecrypt(index)}
                           disabled={loading}
-                          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50"
+                          className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all disabled:opacity-50 btn-glow"
                         >
-                          {decrypted ? "Re-decrypt" : "Decrypt"}
+                          {decrypted ? "🔄 Re-decrypt" : "🔓 Decrypt"}
                         </button>
                       </div>
                       {decrypted ? (
-                        <div className="mt-3 space-y-2 bg-blue-50 p-3 rounded-lg">
-                          <div className="grid grid-cols-2 gap-2 text-sm">
-                            <div>
-                              <span className="font-medium text-gray-700">Stress Level:</span>{" "}
-                              <span className="text-gray-900">{decrypted.stressLevel}/100</span>
+                        <div className="mt-3 bg-gradient-to-br from-blue-50 to-purple-50 p-4 rounded-xl">
+                          <div className="grid grid-cols-2 gap-3 text-sm">
+                            <div className="flex items-center gap-2">
+                              <span>😰</span>
+                              <span className="text-gray-600">Stress:</span>
+                              <span className="font-bold text-gray-800">{decrypted.stressLevel}/100</span>
                             </div>
-                            <div>
-                              <span className="font-medium text-gray-700">Anxiety Level:</span>{" "}
-                              <span className="text-gray-900">{decrypted.anxietyLevel}/100</span>
+                            <div className="flex items-center gap-2">
+                              <span>😟</span>
+                              <span className="text-gray-600">Anxiety:</span>
+                              <span className="font-bold text-gray-800">{decrypted.anxietyLevel}/100</span>
                             </div>
-                            <div>
-                              <span className="font-medium text-gray-700">Mood Score:</span>{" "}
-                              <span className="text-gray-900">{decrypted.moodScore}/100</span>
+                            <div className="flex items-center gap-2">
+                              <span>😊</span>
+                              <span className="text-gray-600">Mood:</span>
+                              <span className="font-bold text-gray-800">{decrypted.moodScore}/100</span>
                             </div>
-                            <div>
-                              <span className="font-medium text-gray-700">Sleep Quality:</span>{" "}
-                              <span className="text-gray-900">{decrypted.sleepQuality}/100</span>
+                            <div className="flex items-center gap-2">
+                              <span>😴</span>
+                              <span className="text-gray-600">Sleep:</span>
+                              <span className="font-bold text-gray-800">{decrypted.sleepQuality}/100</span>
                             </div>
-                            <div>
-                              <span className="font-medium text-gray-700">Energy Level:</span>{" "}
-                              <span className="text-gray-900">{decrypted.energyLevel}/100</span>
+                            <div className="flex items-center gap-2">
+                              <span>⚡</span>
+                              <span className="text-gray-600">Energy:</span>
+                              <span className="font-bold text-gray-800">{decrypted.energyLevel}/100</span>
                             </div>
                           </div>
                         </div>
                       ) : (
-                        <p className="text-sm text-gray-500 mt-2">
-                          Encrypted data - Click "Decrypt" to view
+                        <p className="text-sm text-gray-400 mt-2 flex items-center gap-2">
+                          🔒 Encrypted data - Click "Decrypt" to view
                         </p>
                       )}
                     </div>
@@ -614,15 +657,22 @@ export function MentalHealthSurveyApp() {
             )}
 
             {surveyCount === 0n && (
-              <p className="text-gray-500 text-center py-8">
-                No surveys submitted yet. Submit your first survey above!
-              </p>
+              <div className="text-center py-8">
+                <div className="w-16 h-16 mx-auto mb-3 bg-purple-100 rounded-full flex items-center justify-center">
+                  <span className="text-3xl">📋</span>
+                </div>
+                <p className="text-gray-500">No surveys submitted yet</p>
+                <p className="text-gray-400 text-sm">Submit your first survey above!</p>
+              </div>
             )}
           </div>
 
           {message && (
-            <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-              <p className="text-blue-800">{message}</p>
+            <div className="mt-4 p-4 bg-white border-2 border-purple-200 rounded-xl shadow-lg">
+              <p className="text-purple-800 flex items-center gap-2">
+                {loading && <span className="animate-spin">⏳</span>}
+                {message}
+              </p>
             </div>
           )}
         </>
